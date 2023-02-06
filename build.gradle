@@ -1,0 +1,70 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.blog'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+	implementation 'com.googlecode.json-simple:json-simple:1.1'
+	implementation 'com.google.code.gson:gson:2.3.1'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation 'io.jsonwebtoken:jjwt:0.2'
+	implementation 'com.google.code.gson:gson:2.9.0'
+	// https://mvnrepository.com/artifact/org.ocpsoft.prettytime/prettytime
+	implementation 'org.ocpsoft.prettytime:prettytime:5.0.3.Final'
+	implementation 'javax.servlet:jstl:1.2'
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+	implementation 'org.springframework.security:spring-security-taglibs'
+	// https://mvnrepository.com/artifact/org.ocpsoft.prettytime/prettytime
+	implementation 'org.ocpsoft.prettytime:prettytime:5.0.3.Final'
+	// https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver
+// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+implementation 'org.apache.poi:poi-ooxml:4.0.1'
+implementation 'com.google.api-client:google-api-client:1.30.0'
+implementation 'com.google.apis:google-api-services-indexing:v3-rev81-1.25.0'
+// https://mvnrepository.com/artifact/javax.mail/mail
+implementation 'javax.mail:mail:1.4'
+
+//Thanks for using https://jar-download.com
+
+		// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation 'commons-io:commons-io:2.6'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	
+	 runtimeOnly 'org.springframework.boot:spring-boot-starter-tomcat'
+    runtimeOnly 'org.apache.tomcat.embed:tomcat-embed-jasper'
+}
+
+
+task runWithJavaExec(type: JavaExec) {
+    group = "com.hikers"
+    description = "Hikers N Trekker"
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.eduknot.DemoApplication'
+}
+
